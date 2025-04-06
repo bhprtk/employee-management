@@ -1,88 +1,107 @@
-# Employee Clock-In and Attendance Management System
+# 🕒 Employee Clock-In and Attendance Management System
 
-## Project Overview
-The **Employee Clock-In and Attendance Management System** is a web-based application designed to streamline attendance tracking for organizations. Employees can clock in and out to record their attendance, while administrators can manage employee records and timesheets. The system incorporates features like role-based access, secure authentication, and scalable design.
-
----
-
-## Instructions for Setting Up and Running the Project
-
-### Prerequisites
-1. **Java Development Kit (JDK)**: Version 11 or above.
-2. **Apache Tomcat**: Version 10 or above.
-3. **MySQL Server**: Installed and running.
-4. **IntelliJ IDEA** (or any Java IDE): For code execution and deployment.
+## 📌 Project Overview
+The **Employee Clock-In and Attendance Management System** is a web-based Java application designed to streamline attendance tracking for organizations. Employees can securely clock in and out, while administrators manage employee records and generate timesheets. Key features include role-based access control, secure authentication, and a scalable backend built with Java and MySQL.
 
 ---
 
-### Setup Instructions
-1. **Extract the Codebase**:
-   - Download the zip file and extract it to your preferred directory.
+## 🧰 Tech Stack
 
-2. **Import the Project**:
-   - Open IntelliJ IDEA (or any Java IDE).
-   - Select **Open** and navigate to the extracted project directory.
+- **Backend**: Java, Jakarta Servlet API 6.1.0  
+- **Frontend**: HTML, CSS, Bootstrap (via CDN)  
+- **Database**: MySQL  
+- **Server**: Apache Tomcat 10  
+- **Build Tool**: IntelliJ IDEA (manual deployment)
 
-3. **Database Setup**:
-   - Open a MySQL client or GUI (e.g., MySQL Workbench or the command line).
-   - Create the database and import the schema:
+---
+
+## 🚀 Setup Instructions
+
+### ✅ Prerequisites
+- Java Development Kit (JDK) 11+
+- Apache Tomcat 10+
+- MySQL Server
+- IntelliJ IDEA or compatible IDE
+
+---
+
+### 🛠️ Installation & Configuration
+
+1. **Extract the Codebase**
+   - Download `Project4` folder.
+
+2. **Import the Project**
+   - Open IntelliJ IDEA → **File > Open** → Select the project directory.
+
+3. **Database Setup**
+   - In MySQL, run the following:
      ```sql
      CREATE DATABASE testdb;
      USE testdb;
      SOURCE create_schema.sql;
-     ```
-   - To populate the database with initial testing data, run:
-     ```sql
      SOURCE initialize_data.sql;
      ```
-   - Update the database configuration in `UserDAO.java`:
+   - Update DB credentials in `UserDAO.java`:
      ```java
      private static final String DB_URL = "jdbc:mysql://localhost:3306/testdb";
      private static final String DB_USER = "root";
      private static final String DB_PASSWORD = "your_password";
      ```
 
-4. **Configure Tomcat**:
-   - In IntelliJ, go to **Run > Edit Configurations**.
-   - Add a new **Tomcat Server** configuration.
-   - Set the deployment directory to the project’s `web` folder.
+4. **Tomcat Configuration**
+   - Run > Edit Configurations > Add New > Tomcat Server
+   - Set deployment directory to the project’s `web` folder
 
-5. **Run the Application**:
-   - Start the Tomcat server from IntelliJ.
-   - Open a web browser and navigate to:
+5. **Run the App**
+   - Start Tomcat and visit:  
      ```
      http://localhost:8080/
      ```
 
 ---
 
-## Dependencies and Required Software
-- **Java**: Version 11 or above.
-- **Jakarta Servlet API**: Version 6.1.0.
-- **MySQL Connector/J**: Version 8.0 or above.
-- **Bootstrap**: For front-end design (included via CDN).
+## 📦 Dependencies
+
+- Jakarta Servlet API 6.1.0  
+- MySQL Connector/J 8.0+  
+- Bootstrap (via CDN)
 
 ---
 
-## Additional Configuration Steps
-1. **Database Credentials**:
-   - Ensure that the `DB_URL`, `DB_USER`, and `DB_PASSWORD` in `UserDAO.java` match your MySQL setup.
-   - Grant necessary privileges to the database user:
-     ```sql
-     GRANT ALL PRIVILEGES ON testdb.* TO 'root'@'localhost' IDENTIFIED BY 'your_password';
-     FLUSH PRIVILEGES;
-     ```
+## ⚙️ Additional Configuration
 
-2. **Port Configuration**:
-   - If Tomcat is running on a port other than `8080`, update the URL accordingly.
+- **Database Privileges**:
+  ```sql
+  GRANT ALL PRIVILEGES ON testdb.* TO 'root'@'localhost' IDENTIFIED BY 'your_password';
+  FLUSH PRIVILEGES;
+  ```
 
-3. **Optional Testing Data**:
-   - Use the provided sample SQL queries to populate the `employees` and `attendance` tables with additional data for testing:
-     ```sql
-     INSERT INTO employees (firstname, lastname, username, email, password, role) VALUES
-     ('John', 'Doe', 'johndoe', 'john.doe@example.com', 'hashed_password', 'employee');
-     ```
+- **Testing Data Example**:
+  ```sql
+  INSERT INTO employees (firstname, lastname, username, email, password, role) VALUES
+  ('John', 'Doe', 'johndoe', 'john.doe@example.com', 'hashed_password', 'employee');
+  ```
 
 ---
 
-Feel free to reach out if you encounter any issues during setup. Enjoy using the Employee Clock-In and Attendance Management System!
+## 💡 Future Improvements
+
+- Email notifications on clock-in/out
+- Exportable timesheets (PDF/CSV)
+- Admin analytics dashboard
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.  
+See the [LICENSE](./LICENSE) file for details.
+
+---
+
+## 👤 Author
+
+Developed by [Pratik Bhandari](https://bhprtk.com)
+
+---
+
